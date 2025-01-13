@@ -12,6 +12,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Brands from '~/components/widgets/Brands.astro';
 
 import { YouTube } from 'astro-embed';
+import Hero2 from '~/components/widgets/Hero2.astro';
 
 const metadata = {
   title: 'Startup Landing Page',
@@ -19,42 +20,32 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <!-- Hero2 Widget ******************* -->
 
-  <Hero
+  <Hero2
     tagline="Startup Web Demo"
     actions={[
-      {
-        variant: 'primary',
-        target: '_blank',
-        text: 'Get templates',
-        href: 'https://github.com/onwidget/astrowind',
-        icon: 'tabler:download',
-      },
+      { variant: 'primary', target: '_blank', text: 'Get Started', href: 'https://github.com/onwidget/astrowind' },
       { text: 'Learn more', href: '#features' },
     ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'AstroWind Hero Image',
+    }}
   >
     <Fragment slot="title">
-      Improve <span class="hidden sm:inline">the online presence of</span> your <span
-        class="text-accent dark:text-white highlight">Startup</span
-      > with Astrowind templates
+      Simplify web design with Astrowind: <br /> your ultimate <span class="text-accent dark:text-white highlight"
+        >SaaS</span
+      > companion<br />
     </Fragment>
 
     <Fragment slot="subtitle">
-      Step into the spotlight with <span class="font-semibold">Astrowind</span> templates, your pathway to fortifying your
-      startup's digital footprint, fostering credibility, and expanding your reach.
+      <span class="hidden sm:inline">
+        Elevate your website creation process with <span class="font-semibold">AstroWind</span>'s SaaS solutions.</span
+      >
+      Seamlessly blend the power of Astro 5.0 and Tailwind CSS to craft websites that resonate with your brand and audience.
     </Fragment>
-
-    <Fragment slot="image">
-      <YouTube id="gxBkghlglTg" title="Astro just Launched.... Could it be the ultimate web framework?" />
-      <style is:inline>
-        lite-youtube {
-          margin: 0 auto;
-          max-width: 100%;
-        }
-      </style>
-    </Fragment>
-  </Hero>
+  </Hero2>  
 
   <!-- Features2 Widget ************** -->
 
