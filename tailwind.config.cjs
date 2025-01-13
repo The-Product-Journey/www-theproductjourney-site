@@ -5,17 +5,13 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				body: "rgb(var(--color-bg))",
-				"box-bg": "rgb(var(--color-box))",
-				"box-shadow": "rgb(var(--box-sd))",
-				"box-border": "rgb(var(--box-border))",
-				primary: "#1d4ed8",
-				"heading-1": "rgb(var(--heading-1))",
-				"heading-2": "rgb(var(--heading-2))",
-				"heading-3": "rgb(var(--heading-3))",
-			},
-			screens:{
-				midmd:"880px"
+				primary: "#1E3A8A",
+				secondary: "#0D9488",
+				accent: "#F97316",
+				"heading-1": "#1e293b",
+				"heading-2": "#334155",
+				"heading-3": "#475569",
+				"body": "#1e293b",
 			}
 		},
 	},
