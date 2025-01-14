@@ -6,6 +6,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
 ---
 
 <form action="https://formspree.io/f/meoonbaw" method="POST" class="needs-validation" novalidate>
+  <input type="hidden" name="_next" value="https://theproductjourney.com/thank-you" />
   {
     inputs &&
       inputs.map(
@@ -24,7 +25,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
                 autocomplete={autocomplete}
                 placeholder={placeholder}
                 required
-                class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring-1 focus:ring-accent invalid:border-red-500"
+                class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring-1 focus:ring-accent invalid:border-secondary"
               />
               <div class="invalid-feedback mt-1 text-sm text-red-500">
                 {label} is required
@@ -46,7 +47,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
           rows={textarea.rows ? textarea.rows : 4}
           placeholder={textarea.placeholder}
           required
-          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary invalid:border-red-500"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary invalid:border-secondary"
         />
         <div class="invalid-feedback mt-1 text-sm text-red-500">
           Message is required
