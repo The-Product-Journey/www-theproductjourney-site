@@ -45,7 +45,9 @@ const {
           )}
           <div class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</div>
           {description && (
-            <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
+            <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)}>
+              <span class="[&>a]:text-accent [&>a]:font-medium [&>a]:underline [&>a]:decoration-1 [&>a]:underline-offset-2 [&>a]:transition-colors [&>a]:duration-200 [&>a]:hover:text-accent [&>a]:dark:hover:text-accent" set:html={description} />
+            </p>
           )}
           {callToAction && (
             <div class="mt-2">

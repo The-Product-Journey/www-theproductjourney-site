@@ -1,0 +1,68 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Projects | The Product Journey',
+};
+
+const projects = [
+  {
+    title: 'Project "Ant"',
+    description: 'This is the project that started it all!  We collaborated with a leading EdTech solutions provider to re-imagine what a modernized event and space management \
+    platform might look like.  This project was so successful that it was spun off as an independent company. Learn more about <a href="https://www.gethively.com" target="_blank" rel="noopener noreferrer">Hively</a><br> \
+    <span class="inline-block mt-1 text-secondary dark:text-secondary font-medium">Status: Graduated</span>',
+    icon: 'tabler:rocket',
+  },
+  {
+    title: 'Project "Bear"',
+    description: 'This was a collaboration with Lost Ball Consulting to offer a value-add iOS app to one of their consulting engagements.  The app provided an easy way to track \
+    where your work time is going and then summary reports to understand how well you are allocating your work time to your top priorities. \
+    <span class="inline-block mt-1 text-secondary dark:text-secondary font-medium">Status: Delivered MVP</span>',
+    icon: 'tabler:chart-dots',
+  },
+  {
+    title: 'Project "Cat"',
+    description: 'More information coming soon!<span class="inline-block mt-1 text-primary dark:text-secondary font-medium">Status: Under Development</span>',
+    icon: 'tabler:bolt',
+  },
+  {
+    title: 'Project "Dog"',
+    description: 'More information coming soon!<span class="inline-block mt-1 text-primary dark:text-secondary font-medium">Status: Under Development</span>',
+    icon: 'tabler:bolt',
+  },
+  {
+    title: 'Project "Elephant"',
+    description: 'More information coming soon!<span class="inline-block mt-1 text-primary dark:text-secondary font-medium">Status: Under Development</span>',
+    icon: 'tabler:bolt',
+  },
+  {
+    title: 'Project "Fox"',
+    description: 'More information coming soon!<span class="inline-block mt-1 text-primary dark:text-secondary font-medium">Status: Under Development</span>',
+    icon: 'tabler:bolt',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- <Hero>
+    <Fragment slot="title">
+      Our Projects
+    </Fragment>
+    <Fragment slot="subtitle">
+      From in-house innovations to graduated ventures, explore our portfolio of projects. Each project starts with a unique animal codename and evolves through our product development journey.
+    </Fragment>
+  </Hero> -->
+
+  <Features2
+    title="Our Projects"
+    subtitle="From in-house innovations to graduated ventures, explore our portfolio of projects. Each project starts with a unique animal codename and evolves through our product development journey. These are our current in-house projects, ranging from early-stage experiments to mature products ready for market."
+    items={projects}
+    columns={3}
+    classes={{
+      container: '',
+      panel: 'shadow-lg dark:shadow-none dark:border dark:border-slate-800',
+    }}
+  />
+</Layout> 
