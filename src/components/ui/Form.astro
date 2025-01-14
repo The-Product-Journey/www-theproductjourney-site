@@ -3,10 +3,11 @@ import type { Form as Props } from '~/types';
 import Button from '~/components/ui/Button.astro';
 
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
+const baseUrl = Astro.url.origin;
 ---
 
 <form action="https://formspree.io/f/meoonbaw" method="POST" class="needs-validation" novalidate>
-  <input type="hidden" name="_next" value="https://theproductjourney.com/thank-you" />
+  <input type="hidden" name="_next" value={`${baseUrl}/thank-you`} />
   {
     inputs &&
       inputs.map(
