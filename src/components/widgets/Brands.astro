@@ -29,10 +29,21 @@ const {
           (image) =>
             image.src && (
               <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
-                <Image src={image.src} alt={image.alt || ''} class="max-h-12" width={120} height={48} layout="fixed" />
+                <Image 
+                  src={image.src} 
+                  alt={image.alt || ''} 
+                  class="max-h-12 filter grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" 
+                  width={120} 
+                  height={48} 
+                  layout="fixed" 
+                />
               </div>
             )
         )
     }
+  </div>
+
+  <div class="flex justify-center mt-8">
+    <a href="/projects" class="btn btn-primary">Learn more...</a>
   </div>
 </WidgetWrapper>
