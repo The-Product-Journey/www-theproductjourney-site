@@ -17,7 +17,7 @@ const {
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
-  callToAction,
+  callToAction1,
 } = Astro.props;
 ---
 
@@ -38,9 +38,9 @@ const {
     }}
   />
   {
-    callToAction && (
+    callToAction1 && (
       <div class="flex justify-center mx-auto w-fit mt-8 md:mt-12 font-medium">
-        <Button {...callToAction} />
+        <Button {...callToAction1} />
       </div>
     )
   }

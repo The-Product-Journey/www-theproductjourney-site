@@ -4,26 +4,22 @@ export const headerData = {
   links: [
     {
       text: 'About',
-      href: getPermalink('/about'),
+      href: '/#about',
     },
     {
       text: 'Services',
-      href: getPermalink('/services'),
+      href: '/#services',
     },
     {
       text: 'Projects',
-      href: getPermalink('/projects'),
-    },
-    {
-      text: 'Blog',
-      href: getBlogPermalink(),
+      href: '/projects',
     },
     {
       text: 'Contact',
-      href: getPermalink('/contact'),
+      href: '/contact',
     },
   ],
-  actions: [{ text: "Let's Chat", href: getPermalink('/contact') }],
+  actions: [{ text: "Let's Chat", href: '/contact', variant: 'primary' }],
 };
 
 export const footerData = {
