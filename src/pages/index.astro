@@ -13,45 +13,41 @@ import Brands from '~/components/widgets/Brands.astro';
 
 import { YouTube } from 'astro-embed';
 import Hero2 from '~/components/widgets/Hero2.astro';
+import heroImage from '../assets/images/collaboration.jpeg';
 
 const metadata = {
-  title: 'Startup Landing Page',
+  title: 'The Product Journey',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero2 Widget ******************* -->
+  <!-- Hero Widget ******************* -->
 
   <Hero2
-    tagline="Startup Web Demo"
+    tagline="Innovation Redefined"
     actions={[
-      { variant: 'primary', target: '_blank', text: 'Get Started', href: 'https://github.com/onwidget/astrowind' },
-      { text: 'Learn more', href: '#features' },
+      { variant: 'primary', text: "Let's Chat", href: '/contact' },
+      { text: 'Learn More', href: '#features' },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'AstroWind Hero Image',
+      src: heroImage,
+      alt: 'Diverse team collaborating on product journey mapping',
     }}
   >
     <Fragment slot="title">
-      Simplify web design with Astrowind: <br /> your ultimate <span class="text-accent dark:text-white highlight"
-        >SaaS</span
-      > companion<br />
+      Transform your vision <br />into <span class="text-accent dark:text-white highlight">Reality</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        Elevate your website creation process with <span class="font-semibold">AstroWind</span>'s SaaS solutions.</span
-      >
-      Seamlessly blend the power of Astro 5.0 and Tailwind CSS to craft websites that resonate with your brand and audience.
+      Expert product guidance at every step of your journey. We help ambitious teams turn innovative ideas into successful products through strategic development and thoughtful execution.
     </Fragment>
-  </Hero2>  
+  </Hero2>
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="About us"
-    subtitle="We believe in the magic of turning dreams into stunning realities. Founded by passionate developers with a shared vision, we set out to simplify the website creation process. Our templates bring together the innovation of Astro 5.0 and the versatility of Tailwind CSS, enabling you to express your unique brand identity like never before."
+    title="About Us"
+    subtitle="More than consultants, we're your dedicated product partners. Our team integrates seamlessly with yours, bringing expertise in strategy, development, and design to every project. We believe in transparent collaboration, shared goals, and celebrating successes together. Your product journey becomes our journey, and your challenges become our mission."
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -239,7 +235,7 @@ const metadata = {
 
   <Features3
     title="Let us know how we can help"
-    subtitle="We’re here to help and answer any question you might have."
+    subtitle="We're here to help and answer any question you might have."
     columns={4}
     items={[
       {
