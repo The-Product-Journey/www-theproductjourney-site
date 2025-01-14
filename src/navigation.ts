@@ -25,32 +25,27 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Company',
+      title: 'Who We Are',
       links: [
-        { text: 'About', href: getPermalink('/about') },
-        { text: 'Services', href: getPermalink('/services') },
-        { text: 'Projects', href: getPermalink('/projects') },
-        { text: 'Blog', href: getBlogPermalink() },
+        { text: 'About', href: '#about' },
         { text: 'Contact', href: getPermalink('/contact') },
       ],
     },
     {
-      title: 'Services',
+      title: 'What We Do',
       links: [
-        { text: 'Product Strategy', href: getPermalink('/services#strategy') },
-        { text: 'Product Development', href: getPermalink('/services#development') },
-        { text: 'Product Design', href: getPermalink('/services#design') },
-        { text: 'Product Management', href: getPermalink('/services#management') },
+        { text: 'Services', href: getPermalink('/services') },
+        { text: 'Projects', href: getPermalink('/projects') },
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    // { text: 'Terms', href: getPermalink('/terms') },
+    // { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: '#' },
+    // { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },
+    // { ariaLabel: 'Github', icon: 'tabler:brand-github', href: '#' },
   ],
   footNote: `
     Copyright © ${new Date().getFullYear()} · The Product Journey · All rights reserved.

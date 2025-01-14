@@ -5,7 +5,7 @@ import Button from '~/components/ui/Button.astro';
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
 ---
 
-<form>
+<form action="https://formspree.io/f/meoonbaw" method="POST" class="needs-validation" novalidate>
   {
     inputs &&
       inputs.map(
@@ -14,7 +14,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
             <div class="mb-6">
               {label && (
                 <label for={name} class="block text-sm font-medium">
-                  {label}
+                  {label}<span class="text-red-600">*</span>
                 </label>
               )}
               <input
@@ -23,8 +23,12 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
                 id={name}
                 autocomplete={autocomplete}
                 placeholder={placeholder}
-                class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                required
+                class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:border-primary dark:focus:border-primary invalid:border-red-500"
               />
+              <div class="invalid-feedback mt-1 text-sm text-red-500">
+                {label} is required
+              </div>
             </div>
           )
       )
@@ -34,15 +38,19 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
     textarea && (
       <div>
         <label for="textarea" class="block text-sm font-medium">
-          {textarea.label}
+          {textarea.label}<span class="text-red-600">*</span>
         </label>
         <textarea
           id="textarea"
           name={textarea.name ? textarea.name : 'message'}
           rows={textarea.rows ? textarea.rows : 4}
           placeholder={textarea.placeholder}
-          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+          required
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:border-primary dark:focus:border-primary invalid:border-red-500"
         />
+        <div class="invalid-feedback mt-1 text-sm text-red-500">
+          Message is required
+        </div>
       </div>
     )
   }
@@ -55,13 +63,17 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
             id="disclaimer"
             name="disclaimer"
             type="checkbox"
-            class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+            required
+            class="cursor-pointer h-4 w-4 mt-1 rounded border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 text-primary focus:ring-primary"
           />
         </div>
         <div class="ml-3">
           <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
-            {disclaimer.label}
+            {disclaimer.label}<span class="text-red-600">*</span>
           </label>
+          <div class="invalid-feedback mt-1 text-sm text-red-500">
+            You must agree to continue
+          </div>
         </div>
       </div>
     )
@@ -70,7 +82,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
   {
     button && (
       <div class="mt-10 grid">
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" id="submit-button" disabled>
           {button}
         </Button>
       </div>
@@ -85,3 +97,58 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
     )
   }
 </form>
+
+<style>
+  .invalid-feedback {
+    display: none;
+  }
+  .was-validated :invalid ~ .invalid-feedback {
+    display: block;
+  }
+  .was-validated input:invalid,
+  .was-validated textarea:invalid {
+    border-color: rgb(239 68 68);
+  }
+  [disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+</style>
+
+<script>
+  const forms = document.querySelectorAll('.needs-validation') as NodeListOf<HTMLFormElement>;
+  
+  forms.forEach(form => {
+    const submitButton = form.querySelector('#submit-button') as HTMLButtonElement;
+    const requiredInputs = form.querySelectorAll('[required]') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+    const disclaimerCheckbox = form.querySelector('#disclaimer') as HTMLInputElement;
+
+    // Function to check if all required fields are valid
+    const validateForm = () => {
+      let isValid = true;
+      requiredInputs.forEach(input => {
+        if (!input.value || (input.type === 'checkbox' && !input.checked)) {
+          isValid = false;
+        }
+      });
+      submitButton.disabled = !isValid;
+    };
+
+    // Add event listeners to all required fields
+    requiredInputs.forEach(input => {
+      input.addEventListener('input', validateForm);
+      input.addEventListener('change', validateForm);
+    });
+
+    // Add specific event listener for checkbox
+    disclaimerCheckbox.addEventListener('change', validateForm);
+
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+</script>
